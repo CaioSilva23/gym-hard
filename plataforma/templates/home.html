@@ -2,40 +2,35 @@
 
 {% block conteudo %}
 
-<main class="main-inicial">
 
-        <div class='row'>
-                <a href="{% url 'alunos'%}">
-                    <div class="card-inicio">         
-                        <h5>ALUNOS</h5>
-                    </div>
-                </a>
-                
-                <a href="#">
-                    <div class="card-inicio">         
-                        <h5>LISTA DE EXÉRCICIOS</h5>
-                    </div>
-                </a>
-                
+
+
+<main class="container main-inicial">
+    <section class="main-conteudo">
+        <h2 class='h2-h'>GYM HARD</h2>
         
-
+        <p class='p-p'>PERSONAL ONLINE</p>
+        <div class="row">  
+            <div class='col-md'>
+                <a class='a-a' href="{% url 'alunos' %}"><button class="btn-padrao">ALUNOS</button></a> 
+            </div>       
+            <div class='col-md'>
+                <a class='a-a' href="#"><button class="btn-padrao">AVALIAÇÃO</button></a> 
+            </div>       
+            </div>       
         </div>
-        <div class='row'>
- 
-            <a href="#">
-                <div class="card-inicio">         
-                    <h5>MONTE O TREINO</h5>
-                </div>
-            </a>
-            
-            <a href="#">
-                <div class="card-inicio">         
-                    <h5>AVALIAÇÃO</h5>
-                </div>
-            </a>
-            
+        <div class="row">  
+            <div class='col-md'>
+                <a class='a-a' href="{% url 'grupos'%}"><button class="btn-padrao">EXERCÍCIOS</button></a> 
+            </div>       
+            <div class='col-md'>
+                <a class='a-a' href="#"><button class="btn-padrao">MONTE O TREINO</button></a> 
+            </div>       
+            </div>       
         </div>
-
+        
+    </section>
 </main>
+
 
 {% endblock conteudo %}

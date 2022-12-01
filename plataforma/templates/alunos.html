@@ -1,44 +1,96 @@
 {% extends 'base.html' %}
 
-{% block titulo %}ALUNOS{% endblock titulo %}
+{% block titulo %}
+ALUNOS
+{% endblock titulo %}
 
 {% block conteudo %}
-
 <div class="wrapper">
     <div class="box"> 
         <div class="header-box">
-            <h2 class="titulo">ALUNOS</h2>
             {% if messages %}
-            <br>
-            {% for message in messages %}
-                <div class="alert {{message.tags}}">
-                {{message}}
-                </div>
-            {% endfor %}
-        {% endif %}
-            {% comment %} <button type="button" class="btn btn-conteudo bg-fundo" data-toggle="modal" data-target="#modal">
-                NOVO PREGÃO
-            </button>    
-        br        </div> {% endcomment %}
-        <br>
-        <br>
+                {% for message in messages %}
+                    <section class="alert {{message.tags}}">
+                        {{message}}
+                    </section>
+                {% endfor %}
+            {% endif %}
+            
+            <div class='row cd-aluno'>
 
+                <div class='col-md'>
+                    <h2 class="titulo">ALUNOS</h2>
+
+                </div>
+                <div class='col-md'>
+                    <a href='#' class="btn-confirmar">CADASTRAR ALUNO</a>
+
+                </div>
+            </div>
+        </div>
         <div class="borda-box"></div>
         <div class="body-box">
-            <div class="row align-top"> 
-                {% for aluno in alunos %}
-                <div class="card col-md-2 card-real">
+        
+            <form action='#' method='GET'> {% csrf_token %}
+            <div class="row">
                 
-                    <div class="card-header card-om">
-                        <img src="#" height="150" width="100" class='card-img-'>
+                    <div class="col-md-5">
+                        <input type="text" placeholder="Busque pelo nome" class="form-control" name="nome">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{aluno.nome}}</h5>
-                         
-                    </div>
+
+                    {% comment %} <div class="col-md-4">
+                        <select class="form-select" name="tecnologias">
+                            <option value="">---------</option>
+                            {% for tech in tecnologias %}
+                            <option value="{{ tech.id }}">{{ tech }}</option>
+                            {% endfor %}
+                        </select>
+                    </div> {% endcomment %}
+                
+                <div class="col-md-3">
+                    <input type="submit" value="FILTRAR" class="btn btn-lg btn-confirmar">
                 </div>
-                {% endfor %}
-            </div> 
+            </div>
+            </form>
+
+            <table class="table" cellpadding="20">
+                <tr>
+                    <th>NOME</th>
+                    <th>SEXO</th>
+                    <th>DATA NASCIMENTO</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONE</th>
+                    <th>AÇÕES</th>
+                </tr>
+
+                    {% for i in alunos  %}
+                    <tr>
+                        <td><a href="#">{{i.nome}}</a> </td>
+                        <td>{{i.sexo}}</td>
+                        <td>{{i.data_nascimento}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.telefone}}</td>
+                        {% comment %} <td>
+                            <select class="form-select">       
+                                {% for tech in empresa.tecnologias.all %}
+                                <option>{{ tech }}</option>                    
+                                {% endfor %}
+                            </select>
+                        </td> {% endcomment %}
+                        {% comment %} <td>{% if empresa.qtd_vagas %}
+                            <img src="{% static 'empresa/img/flag_green.png'%}" alt="">
+                            {% else %}
+                            <img src="{% static 'empresa/img/flag_red.png'%}" alt="">
+                            {% endif %}
+                            {{ empresa.qtd_vagas}}
+                        </td> {% endcomment %}
+                        <td>
+                            <a href="#" class="btn-excluir">EXCLUIR</a>
+                            <a href="#" class="btn-excluir">EDITAR</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
         </div>
 
 

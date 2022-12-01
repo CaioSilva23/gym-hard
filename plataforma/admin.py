@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Aluno)
 admin.site.register(Avaliacao)
 admin.site.register(Exercicio)
+admin.site.register(GrupoMuscular)
+admin.site.register(FichaTreino)
