@@ -2,38 +2,36 @@
 {% load static %}
 {% block conteudo %}
 
-
-  
-  
 <div class="wrapper">
-    <div class="box"> 
-            <div class="header-box">
-                {% if messages %}
-                    {% for message in messages %}
-                        <section class="alert {{message.tags}}">
-                            {{message}}
-                        </section>
-                    {% endfor %}
-                {% endif %}
-                {% comment %} <h2 class="titulo">EMPENHOS POR OMS</h2>
-                <a href='#' class="btn btn-conteudo bg-fundo">LISTAR TODOS OS EMPENHOS</a> {% endcomment %}
-            </div>
-            <div class="borda-box"></div>
-            <div class="body-box">
-                <div class="row align-top" style='padding: 20px;'> 
-                    {% for i in grupos %}
-                    <div class="card col-md-2">
-                            <a href="{% url 'execicio_id' i.id %}"><img class="card-img-top" src="{% static 'plataforma/img/teste.png'%}" alt="Card image cap"></a>
-                            
-                            <div class="card-body">
-                                <p class="card-text">{{i.nome}}</p>
-                            </div>
+
+
+    <div class='box-home'>
+        <div class="header-box">
+           <div class='home-titulo'>GYM HARD</div>
+           <div class='home-paragrafo'>PERSONAL ONLINE</div>
+
+        </div>
+
+        <div class="body-box">
+            
+            <div class="row">
+                {% for i in grupos %}
+                <div class="card card-home" style="width: 15rem;">
+                    <a href="{% url 'grupo' i.id%}">
+                        <img src="{% static 'plataforma/img/teste.png'%}" class="card-img-top" width='20' height='150' alt="...">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.nome}}</h5>
                     </div>
-                    {% endfor %}
-                </div> 
-            </div>        
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 
-{% endblock conteudo %}
 
+
+
+{% endblock conteudo %}

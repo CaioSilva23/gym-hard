@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}{{aluno.nome}}{% endblock titulo %}
+
+
+{% block conteudo %}
+
+
+<div class="wrapper">
+    <div class="box"> 
+        <div class="header-box">
+            <div class="row">
+                <div class="col-md">
+                    <h1 class="titulo">{{aluno.nome}}</h1>
+                </div>
+    
+            </div>
+            <br>
+        </div>
+        <div class="borda-box"></div>
+        <div class="body-box">
+            <div class="row">
+                <div class="col-md-5 label">
+                    <label>Email:</label>
+                    <input disabled type="text" class="form-control" value="{{aluno.email}}">
+                    <br>
+                    <label>Telefone:</label>
+                    <input disabled type="text" class="form-control" value="{{aluno.telefone}}">
+                    <br>
+                    <label>Data de Nascimento:</label>
+                    <input disabled type="text" class="form-control" value="{{aluno.data_nascimento}}">
+                    <br>
+                    <label>Sexo:</label>
+                    <input disabled type="text" class="form-control" value="{{aluno.get_sexo_display}}">
+                    <br>
+    
+    
+                    <a href="{% url 'deletar_aluno' aluno.id%}">
+                        <button class='btn btn-primary'>
+                            EXCLUIR
+                        </button>
+                    </a>
+                    
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        EDITAR
+                      </button>
+               
+    
+                </div>
+    {% comment %} 
+                <div class="col-md-6">
+                    <label>Tecnologias usadas:</label>
+                    <select class="form-select" name="tecnologias">
+             
+                        {% for tech in empresa.tecnologias.all %}
+                        <option >{{ tech }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div> {% endcomment %}
+            </div>
+            {% comment %} <br>
+            <div class="row">
+                <div class="col-md-7">
+                    <label>Características da empresa:</label>
+                    <textarea disabled class="form-control">{{empresa.caracteristica_empresa}}</textarea>
+                </div>
+    
+                <div class="col-md-3">
+                    
+                    
+                </div>
+            </div>
+    
+            <hr> {% endcomment %}
+          
+
+        </div>
+    </div>
+</div>
+
+   
+
+
+        
+
+       
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">EDITAR DE ALUNO</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action='{% url "editar_aluno" aluno.id %}' method="POST" enctype='multipart/form-data'> {% csrf_token %}
+        
+                <div class="modal-body">
+                    <label for="">Nome: </label>
+                    <div >
+                        <input type="text" value='{{aluno.nome}}' placeholder="Nome do aluno" class="form-control" name="nome">
+                    </div>
+        
+                    <label for="">Sexo: </label>
+                    <div >
+                        <select name="sexo" id="" class='form-control'>
+                            <option value="M">MASCULINO</option>
+                            <option value="F">FEMININO</option>
+                        </select>
+                    </div>
+        
+                    <label for="">Data de Nascimento: </label>
+                    <div >
+                        <input type="date" value='{{aluno.data_nascimento}}' placeholder="Data de nascimento" class="form-control" name="nascimento">
+                    </div>
+        
+                    <label for="">Email: </label>
+                    <div >
+                        <input type="email" value='{{aluno.email}}' placeholder="Email do aluno" class="form-control" name="email">
+                    </div>
+              
+
+                    <label for="">Telefone: </label>
+                    <div >
+                        <input type="number" value='{{aluno.telefone}}' placeholder="Telefone do aluno" class="form-control" name="telefone">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">SAIR</button>
+                  <button type="submit" class="btn btn-primary">CONFIRMAR</button>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+        
+
+{% endblock conteudo %}
+

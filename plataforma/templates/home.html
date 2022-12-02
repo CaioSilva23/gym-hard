@@ -1,36 +1,65 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block conteudo %}
 
+<div class="wrapper">
 
 
+    <div class='box-home'>
+        <div class="header-box">
+           <div class='home-titulo'>GYM HARD</div>
+           <div class='home-paragrafo'>PERSONAL ONLINE</div>
 
-<main class="container main-inicial">
-    <section class="main-conteudo">
-        <h2 class='h2-h'>GYM HARD</h2>
-        
-        <p class='p-p'>PERSONAL ONLINE</p>
-        <div class="row">  
-            <div class='col-md'>
-                <a class='a-a' href="{% url 'alunos' %}"><button class="btn-padrao">ALUNOS</button></a> 
-            </div>       
-            <div class='col-md'>
-                <a class='a-a' href="#"><button class="btn-padrao">AVALIAÇÃO</button></a> 
-            </div>       
-            </div>       
         </div>
-        <div class="row">  
-            <div class='col-md'>
-                <a class='a-a' href="{% url 'grupos'%}"><button class="btn-padrao">EXERCÍCIOS</button></a> 
-            </div>       
-            <div class='col-md'>
-                <a class='a-a' href="#"><button class="btn-padrao">MONTE O TREINO</button></a> 
-            </div>       
-            </div>       
+
+        <div class="body-box">
+            <div class="row">
+                
+                <div class="card card-home" style="width: 15rem;">
+                    <a href="{% url 'alunos'%}">
+                        <img src="{% static 'plataforma/img/teste.png'%}" class="card-img-top" width='20' height='150' alt="...">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">ALUNOS</h5>
+                    </div>
+                </div>
+                <div class="card card-home" style="width: 15rem;">
+                    <a href="{% url 'alunos'%}">
+                        <img src="{% static 'plataforma/img/teste.png'%}" class="card-img-top" width='20' height='150' alt="...">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">AVALIAÇÃO</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card card-home" style="width: 15rem;">
+                    <a href="{% url 'grupos'%}">
+                        <img src="{% static 'plataforma/img/teste.png'%}" class="card-img-top" width='20' height='150' alt="...">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">EXERCÍCIOS</h5>
+                    </div>
+                </div>
+                <div class="card card-home" style="width: 15rem;">
+                    <a href="#">
+                        <img src="{% static 'plataforma/img/teste.png'%}" class="card-img-top" width='20' height='150' alt="...">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">FICHA DE TREINO</h5>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    </section>
-</main>
+    </div>
+</div>
+
+
 
 
 {% endblock conteudo %}
