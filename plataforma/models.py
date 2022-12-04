@@ -30,28 +30,18 @@ class Avaliacao(models.Model):
 
 class GrupoMuscular(models.Model):
     nome = models.CharField(max_length=30)
-
     def __str__(self) -> str:
         return self.nome
 
 class BancoExercicios(models.Model):
     nome = models.CharField(max_length=25)
     grupo_muscular = models.ForeignKey(GrupoMuscular, on_delete=models.SET_NULL, null=True)
-
-
-class Exercicio(models.Model):
-    exercio = models.ManyToManyField(BancoExercicios)
-    nome = models.CharField(max_length=50)
-    video = models.FileField(upload_to='video', null=True, blank=True)
-    series = models.CharField(max_length=10)
-    tecnica = models.CharField(max_length=25, null=True, blank=True)
-
-
-
+    
     def __str__(self):
         return self.nome
 
 class Treino(models.Model):
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     nome = models.CharField(max_length=10)
      
 
@@ -59,16 +49,17 @@ class Treino(models.Model):
         return self.nome
 
 
+class Exercicio(models.Model):
+    exercicio = models.ForeignKey(BancoExercicios, on_delete=models.SET_NULL, null=True)
+    treino = models.ForeignKey(Treino, on_delete=models.SET_NULL, null=True)
+    series = models.CharField(max_length=10)
+    tecnica = models.CharField(max_length=25, null=True, blank=True)
 
-class FichaTreino(models.Model):
-    treino_chices = (('ABC','ACB'),('AB','AB'))
-    treinos = models.ForeignKey(Treino, on_delete=models.SET_NULL, null=True)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    tipo_treino = models.CharField(max_length=3, choices=treino_chices)
-    dias = models.IntegerField()
-    data_inicio = models.DateField(default=date.today())
 
-    def __str__(self) -> str:
-        return f'Ficha {self.aluno}'
+    def __str__(self):
+        return f'{self.exercicio}'
+
+
+
     
 

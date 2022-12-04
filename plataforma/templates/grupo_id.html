@@ -19,12 +19,12 @@ ALUNOS
             <div class='row cd-aluno'>
 
                 <div class='col-md'>
-                    <h2 class="titulo">ALUNOS</h2>
+                    <h2 class="titulo">{{grupo.id}}</h2>
 
                 </div>
                 <div class='col-md'>
                     <button type="button" class="btn-confirmar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        CADASTRAR ALUNO
+                        NOVO EXÉRCICIO 
                       </button>
                 
 
@@ -33,7 +33,7 @@ ALUNOS
         </div>
         <div class="borda-box"></div>
         <div class="body-box">
-        
+        {% comment %}
             <form action='#' method='GET'> {% csrf_token %}
             <div class="row">
                 
@@ -41,37 +41,39 @@ ALUNOS
                         <input type="text" placeholder="Busque pelo nome" class="form-control" name="nome">
                     </div>
 
-                    {% comment %} <div class="col-md-4">
+                     <div class="col-md-4">
                         <select class="form-select" name="tecnologias">
                             <option value="">---------</option>
                             {% for tech in tecnologias %}
                             <option value="{{ tech.id }}">{{ tech }}</option>
                             {% endfor %}
                         </select>
-                    </div> {% endcomment %}
+                    </div> 
                 
                 <div class="col-md-3">
                     <input type="submit" value="FILTRAR" class="btn btn-lg btn-confirmar">
                 </div>
             </div>
-            </form>
+            </form>{% endcomment %}
 
             <table class="table tabela" cellpadding="20">
                 <tr>
-                    <th>NOME</th>
+                    <th>EXÉRCICIO</th>
           
-                    <th>EMAIL</th>
-                    <th>TELEFONE</th>
+                    <th>AÇÕES</th>
 
                 </tr>
 
-                    {% for i in alunos  %}
+                    {% for i in exercicios %}
                     <tr>
-                        <td><a href="{% url 'dados_aluno' i.id%}">{{i.nome}}</a> </td>
-                     
+                        <td>{{i.nome}}</td>
+                        <td>
+                            <button type="button" class="btn-close" ></button>
+                            <button type="button" class="btn-close" ></button>
+
+                        </td>
                         
-                        <td>{{i.email}}</td>
-                        <td>{{i.telefone}}</td>
+                  
                         {% comment %} <td>
                             <select class="form-select">       
                                 {% for tech in empresa.tecnologias.all %}
@@ -106,43 +108,29 @@ ALUNOS
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">CADASTRO DE ALUNO</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">NOVO EXÉRCICIO</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action='{% url "cadastro_aluno" %}' method="POST" enctype='multipart/form-data'> {% csrf_token %}
+        <form action='{% url "cadastro_exercicio"%}' method="POST" enctype='multipart/form-data'> {% csrf_token %}
 
         <div class="modal-body">
-            <label for="">Nome: </label>
+            <label for="">EXERCÍCIO: </label>
+            <br>
             <div >
-                <input type="text" placeholder="Nome do aluno" class="form-control" name="nome">
+                <input type="text" placeholder="Digite o exercício" class="form-control" name="exercicio">
             </div>
             <br>
-            <label for="">Sexo: </label>
+            <label for="">MUSCULO: </label>
+         
             <div >
-
-                <select name="sexo" id="" class='form-control'>
-                    <option value="M">MASCULINO</option>
-                    <option value="F">FEMININO</option>
-
+           
+                <select class="form-select" name='musculo'>       
+               
+                    <option value='{{i.id}}'>{{ i.nome }}</option>                    
+                  
                 </select>
             </div>
-            <br>
-            <label for="">Data de Nascimento: </label>
-            <div >
-                <input type="date" placeholder="Data de nascimento" class="form-control" name="nascimento">
-            </div>
-            <br>
-            <label for="">Email: </label>
-            <div >
-                <input type="email" placeholder="Email do aluno" class="form-control" name="email">
-            </div>
-            <br>
-            <label for="">Telefone: </label>
-            <div >
-                <input type="number" placeholder="Telefone do aluno" class="form-control" name="telefone">
-            </div>
-            <br>
-        </div>
+            
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">SAIR</button>
           <button type="submit" class="btn btn-primary">CADASTRAR</button>

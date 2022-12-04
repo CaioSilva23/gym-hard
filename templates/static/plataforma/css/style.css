@@ -46,8 +46,9 @@
     border: 1px solid;
 } */
 table{
-    box-shadow: 5px 5px 5px 5px rgb(44, 206, 66);
+
     text-align: center;
+    color: white;
 }
 
 
@@ -362,6 +363,7 @@ li{
     box-shadow: 5px 5px 5px 5px rgb(158, 240, 27);
     text-align: center;
     color: white;
+    margin-bottom: 50px;
 }
 .box-home{
     
@@ -404,6 +406,17 @@ li{
     width: 100%;
     margin-top: 20px;
     color: white;
+
+}
+.tabela-treino{
+    width: 100%;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+    background-color: #EDE6E6;
+
+    text-align: center;
+  
+
 
 }
 .tabela-linha{

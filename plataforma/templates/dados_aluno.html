@@ -104,19 +104,20 @@
                     <label for="">Sexo: </label>
                     <div >
                         <select name="sexo" id="" class='form-control'>
-                            <option value="M">MASCULINO</option>
-                            <option value="F">FEMININO</option>
+                            <option selected value="M">{{aluno.get_sexo_display}}</option>
+                            {% comment %} <option value="M">MASCULINO</option>
+                            <option value="F">FEMININO</option> {% endcomment %}
                         </select>
                     </div>
         
                     <label for="">Data de Nascimento: </label>
                     <div >
-                        <input type="date" value='{{aluno.data_nascimento}}' placeholder="Data de nascimento" class="form-control" name="nascimento">
+                        <input required type="date" value="{{aluno.data_nascimento}}" placeholder="Data de nascimento" class="form-control" name="nascimento">
                     </div>
         
                     <label for="">Email: </label>
                     <div >
-                        <input type="email" value='{{aluno.email}}' placeholder="Email do aluno" class="form-control" name="email">
+                        <input required type="email" value='{{aluno.email}}' placeholder="Email do aluno" class="form-control" name="email">
                     </div>
               
 
