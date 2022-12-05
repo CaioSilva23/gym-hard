@@ -37,10 +37,12 @@
 }
 /* NAVBAR */
 .logo{
-    height: 55px;
+    height: 60px;
     width: auto;
-    padding: 5px;
+    padding: 2px;
     cursor: pointer;
+    border: none; /* TIRA AS BORDAS*/
+    border-radius: 15px; /* ARRENDAMENTO*/
 }
 /* tbody{
     border: 1px solid;
@@ -149,8 +151,12 @@ li{
 .nav-body{
     margin-right: 80px;
 }
+
+a{
+    color: #7ed829;
+}
 .nav-logo{
-    margin-left: 100px;
+    margin-left: 200px;
     font-weight: bold;
     color: black;
 }
@@ -374,6 +380,7 @@ li{
     text-align: center;
     color: white;
     align-items: center;
+    margin-bottom: 50px;
 }
 .header-box{
 

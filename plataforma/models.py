@@ -42,7 +42,7 @@ class BancoExercicios(models.Model):
 
 class Treino(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=10)
+    nome = models.CharField(max_length=20)
      
 
     def __str__(self) -> str:
@@ -51,7 +51,7 @@ class Treino(models.Model):
 
 class Exercicio(models.Model):
     exercicio = models.ForeignKey(BancoExercicios, on_delete=models.SET_NULL, null=True)
-    treino = models.ForeignKey(Treino, on_delete=models.SET_NULL, null=True)
+    treino = models.ForeignKey(Treino, on_delete=models.CASCADE)
     series = models.CharField(max_length=10)
     tecnica = models.CharField(max_length=25, null=True, blank=True)
 

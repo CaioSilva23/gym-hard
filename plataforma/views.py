@@ -12,8 +12,6 @@ def home(request):
 
 def alunos(request):
     alunos = Aluno.objects.all()
-    a = Aluno.objects.get(id=2)
-    print(a.data_nascimento)
     return render(request, 'alunos.html', {'alunos':alunos})
 
 def cadastro_aluno(request):
@@ -122,6 +120,14 @@ def cadastro_exercicio_ficha(request):
     novo_exercicio.save()
     return redirect(f'/ficha_treino_id/{treino.aluno_id}')
 
+def deletar_exercicio_ficha(request, id):
+    exe = Exercicio.objects.get(id=id)
+
+    id_aluno = exe.treino.aluno.id
+    
+
+    exe.delete()
+    return redirect(f'/ficha_treino_id/{id_aluno}')
 
 
 def grupos(request):

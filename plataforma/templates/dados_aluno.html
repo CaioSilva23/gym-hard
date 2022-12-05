@@ -35,13 +35,13 @@
                     <input disabled type="text" class="form-control" value="{{aluno.get_sexo_display}}">
                     <br>
     
-    
-                    <a href="{% url 'deletar_aluno' aluno.id%}">
-                        <button class='btn btn-primary'>
-                            EXCLUIR
-                        </button>
-                    </a>
+                  
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        EXCLUIR
+                      </button>
                     
+              
+                   
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         EDITAR
                       </button>
@@ -136,6 +136,87 @@
             </div>
           </div>
         
+
+          <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">CADASTRO DE ALUNO</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action='{% url "cadastro_aluno" %}' method="POST" enctype='multipart/form-data'> {% csrf_token %}
+
+        <div class="modal-body">
+            <label for="">Nome: </label>
+            <div >
+                <input type="text" placeholder="Nome do aluno" class="form-control" name="nome">
+            </div>
+            <br>
+            <label for="">Sexo: </label>
+            <div >
+
+                <select name="sexo" id="" class='form-control'>
+                    <option value="M">MASCULINO</option>
+                    <option value="F">FEMININO</option>
+
+                </select>
+            </div>
+            <br>
+            <label for="">Data de Nascimento: </label>
+            <div >
+                <input type="date" placeholder="Data de nascimento" class="form-control" name="nascimento">
+            </div>
+            <br>
+            <label for="">Email: </label>
+            <div >
+                <input type="email" placeholder="Email do aluno" class="form-control" name="email">
+            </div>
+            <br>
+            <label for="">Telefone: </label>
+            <div >
+                <input type="number" placeholder="Telefone do aluno" class="form-control" name="telefone">
+            </div>
+            <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">SAIR</button>
+          <button type="submit" class="btn btn-primary">CADASTRAR</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!--MODAL EXCLUSÃO-->
+
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir aluno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Tem certeza que deseja excluir esse aluno ? 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">SAIR</button>
+
+          <a href="{% url 'deletar_aluno' aluno.id%}">
+          <button type="button" class="btn btn-primary">SIM</button>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock conteudo %}
 

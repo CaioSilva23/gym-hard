@@ -24,6 +24,7 @@ urlpatterns = [
 
     # EXERCICIO FICHA
     path('cadastro_exercicio_ficha/', views.cadastro_exercicio_ficha, name='cadastro_exercicio_ficha'),
+    path('deletar_exercicio_ficha/<int:id>/', views.deletar_exercicio_ficha, name='deletar_exercicio_ficha'),
 
 
     #CRUD TREINO

@@ -19,7 +19,7 @@ ALUNOS
             <div class='row cd-aluno'>
 
                 <div class='col-md'>
-                    <h2 class="titulo">{{grupo.id}}</h2>
+                    <h2 class="titulo">Lista de exercícios de {{i}}</h2>
 
                 </div>
                 <div class='col-md'>
@@ -33,37 +33,11 @@ ALUNOS
         </div>
         <div class="borda-box"></div>
         <div class="body-box">
-        {% comment %}
-            <form action='#' method='GET'> {% csrf_token %}
-            <div class="row">
-                
-                    <div class="col-md-5">
-                        <input type="text" placeholder="Busque pelo nome" class="form-control" name="nome">
-                    </div>
-
-                     <div class="col-md-4">
-                        <select class="form-select" name="tecnologias">
-                            <option value="">---------</option>
-                            {% for tech in tecnologias %}
-                            <option value="{{ tech.id }}">{{ tech }}</option>
-                            {% endfor %}
-                        </select>
-                    </div> 
-                
-                <div class="col-md-3">
-                    <input type="submit" value="FILTRAR" class="btn btn-lg btn-confirmar">
-                </div>
-            </div>
-            </form>{% endcomment %}
-
             <table class="table tabela" cellpadding="20">
                 <tr>
                     <th>EXÉRCICIO</th>
-          
                     <th>AÇÕES</th>
-
                 </tr>
-
                     {% for i in exercicios %}
                     <tr>
                         <td>{{i.nome}}</td>
@@ -71,32 +45,11 @@ ALUNOS
                             <button type="button" class="btn-close" ></button>
                             <button type="button" class="btn-close" ></button>
 
-                        </td>
-                        
-                  
-                        {% comment %} <td>
-                            <select class="form-select">       
-                                {% for tech in empresa.tecnologias.all %}
-                                <option>{{ tech }}</option>                    
-                                {% endfor %}
-                            </select>
-                        </td> {% endcomment %}
-                        {% comment %} <td>{% if empresa.qtd_vagas %}
-                            <img src="{% static 'empresa/img/flag_green.png'%}" alt="">
-                            {% else %}
-                            <img src="{% static 'empresa/img/flag_red.png'%}" alt="">
-                            {% endif %}
-                            {{ empresa.qtd_vagas}}
-                        </td> {% endcomment %}
-
+                        </td> 
                     </tr>
                     {% endfor %}
             </table>
-        </div>
-
-
-        
-
+        </div>     
     </div>
 </div>
 
