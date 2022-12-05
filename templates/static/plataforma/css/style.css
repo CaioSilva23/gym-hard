@@ -9,9 +9,10 @@
 }
 .body-b{
     font-family: 'Roboto', sans-serif;
-    background: url("../img/gym1.jpg") center center/cover;
+    /* background: url("../img/gym1.jpg") center center/cover;
     background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: color;
+    background-blend-mode: color; */
+    background-color: #0d1117;
     width: 100%;
     min-height: 80vh;
 }
@@ -31,8 +32,8 @@
 
 .bg-fundo
 {
-    background-color: #CBF229 !important;
-    color: black;
+    background-color: #161b22  !important;
+    color: white;
 
 }
 /* NAVBAR */
@@ -111,7 +112,7 @@ table{
 }
 .bg-nav{
     padding: 10px;
-    color: #CBF229;
+    color: #161b22 ;
 }
 
 .alinhado{
@@ -139,14 +140,14 @@ ul li:nth-child(3){
     align-items: right;
 }
 .color{
-    color: black;
+    color: white;
 }
 li{
     padding: 0 20px;
     transition: all 300ms ease;
     font-weight: bold;
     align-items: right;
-    color:black;
+    color:white;
 }
 .nav-body{
     margin-right: 80px;
