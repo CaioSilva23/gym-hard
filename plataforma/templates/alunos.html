@@ -67,7 +67,7 @@ ALUNOS
 
                     {% for i in alunos  %}
                     <tr>
-                        <td><a href="{% url 'dados_aluno' i.id%}">{{i.nome}}</a> </td>
+                        <td><a href="{% url 'aluno' i.id%}">{{i.nome}}</a> </td>
                      
                         
                         <td>{{i.email}}</td>

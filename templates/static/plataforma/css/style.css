@@ -442,4 +442,15 @@ a{
 
 .label{
     text-align: left;
+    font-weight: bold;
+}
+
+
+
+.dados{
+    margin: 10px 150px;
+}
+
+.treinos{
+    margin: 10px;
 }

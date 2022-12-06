@@ -1,86 +1,47 @@
-{% extends 'base.html' %}
+{% extends 'base_aluno.html' %}
 {% load static %}
 
-{% block titulo %}{{aluno.nome}}{% endblock titulo %}
+
+{% block conteudo_aluno %}
+<br>
+<br>
+<div class='dados label'>
+  <div class='col-md'>
+    <label>Nome:</label>
+    <input disabled type="text" class="form-control" value="{{aluno.nome}}">
+    <br>
+   
+
+    <label>Email:</label>
+    <input disabled type="text" class="form-control" value="{{aluno.email}}">
+    <br>
+
+    <label>Telefone:</label>
+    <input disabled type="text" class="form-control" value="{{aluno.telefone}}">
+    <br>
+    <label>Data de Nascimento:</label>
+    <input disabled type="text" class="form-control" value="{{aluno.data_nascimento}}">
+    <br>
+    
+    <label>Sexo:</label>
+    <input disabled type="text" class="form-control" value="{{aluno.get_sexo_display}}">
+    <br>
 
 
-{% block conteudo %}
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        EXCLUIR
+      </button>
 
 
-<div class="wrapper">
-    <div class="box"> 
-        <div class="header-box">
-            <div class="row">
-                <div class="col-md">
-                    <h1 class="titulo">{{aluno.nome}}</h1>
-                </div>
-    
-            </div>
-            <br>
-        </div>
-        <div class="borda-box"></div>
-        <div class="body-box">
-            <div class="row">
-                <div class="col-md-5 label">
-                    <label>Email:</label>
-                    <input disabled type="text" class="form-control" value="{{aluno.email}}">
-                    <br>
-                    <label>Telefone:</label>
-                    <input disabled type="text" class="form-control" value="{{aluno.telefone}}">
-                    <br>
-                    <label>Data de Nascimento:</label>
-                    <input disabled type="text" class="form-control" value="{{aluno.data_nascimento}}">
-                    <br>
-                    <label>Sexo:</label>
-                    <input disabled type="text" class="form-control" value="{{aluno.get_sexo_display}}">
-                    <br>
-    
-                  
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        EXCLUIR
-                      </button>
-                    
-              
-                   
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        EDITAR
-                      </button>
-               
-    
-                </div>
-    {% comment %} 
-                <div class="col-md-6">
-                    <label>Tecnologias usadas:</label>
-                    <select class="form-select" name="tecnologias">
-             
-                        {% for tech in empresa.tecnologias.all %}
-                        <option >{{ tech }}</option>
-                        {% endfor %}
-                    </select>
-                    
-                </div> {% endcomment %}
-            </div>
-            {% comment %} <br>
-            <div class="row">
-                <div class="col-md-7">
-                    <label>Características da empresa:</label>
-                    <textarea disabled class="form-control">{{empresa.caracteristica_empresa}}</textarea>
-                </div>
-    
-                <div class="col-md-3">
-                    
-                    
-                </div>
-            </div>
-    
-            <hr> {% endcomment %}
-          
 
-        </div>
-    </div>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        EDITAR
+      </button>
+
+  </div>
 </div>
 
-   
+
 
 
         
@@ -194,7 +155,6 @@
 
   <!--MODAL EXCLUSÃO-->
 
-  </button>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -218,5 +178,6 @@
     </div>
   </div>
 
-{% endblock conteudo %}
 
+  
+  {% endblock conteudo_aluno %}

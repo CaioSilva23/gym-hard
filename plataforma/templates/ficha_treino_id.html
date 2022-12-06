@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base_aluno.html' %}
 
 {% block titulo %}
 ALUNOS
 {% endblock titulo %}
 
-{% block conteudo %}
-<div class="wrapper">
-    <div class="box"> 
-        <div class="header-box">
+{% block conteudo_aluno %}
+<div class='dados'>
             {% if messages %}
                 {% for message in messages %}
                     <section class="alert {{message.tags}}">
@@ -16,27 +14,25 @@ ALUNOS
                 {% endfor %}
             {% endif %}
        
-            <div class='row cd-aluno'>
-
+          
                 <div class='col-md'>
                     <h2 class="titulo">{{aluno.nome}}</h2>
                     <h6 class="titulo">{{aluno.email}}</h6>
                 </div>
 
-            </div>
-            <button type="button" class="btn-confirmar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+           
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Novo Treino/Exercício
               </button>
 
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Exportar Treino
               </button>
  
 
         </div>
-        <div class="borda-box"></div>
-        <div class="body-box">
-            <div class="row">
+    
+            <div class="row treinos">
                 {% for i in  treinos %}
                 <div class="col-md">
                 <h3>{{i.nome}}</h3>
@@ -64,20 +60,15 @@ ALUNOS
                                          
                                         </td>
                                         
-                                    </tr>
+                                     </tr>
                                 {% endif %}
                             {% endfor %}
                     </table>
                 </div>
             {% endfor %}
             </div>
-        </div>
-           
-            
-        
-    </div>
-</div>
 
+</div>
 <!--MODAL TREINO -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -116,34 +107,7 @@ ALUNOS
           <input type="text" class="form-control" placeholder="Ex: peito/tríceps" name="treino">
           </div>
           <br>
-         {% comment %} <label for="validationServerUsername">Horário</label>
-          <div class="input-group">
-          <input type="time" class="form-control" placeholder="-" name="horario">
-          </div>  {% endcomment %}
-          <br>
-          {% comment %} <h5 class="titulo">Macronutrientes</h5>
-            <div class="container">
-              <div class="row">
-              <div class="col-md-4">
-              <label for="validationServerUsername">Carboidratos</label>
-              <div class="input-group">
-              <input type="text" class="form-control" placeholder="" name="carboidratos">
-              </div>
-              </div>
-              <div class="col-md-4">
-              <label for="validationServerUsername">Proteínas</label>
-              <div class="input-group">
-              <input type="text" class="form-control" placeholder="" name="proteinas">
-            </div>
-          </div>
-          <div class="col-md-4">
-          <label for="validationServerUsername">Gorduras</label>
-          <div class="input-group">
-          <input type="text" class="form-control" placeholder="" name="gorduras">
-          </div>
-          </div>
-          </div>
-          </div> {% endcomment %}
+
           <br>
           <input type="submit" value="Cadastrar" class="btn btn-success">
           </form>
@@ -177,16 +141,7 @@ ALUNOS
               <div class="input-group">
               <input type="text" class="form-control" placeholder="Ex: drop-set" name="tecnica">
               </div>
-              {% comment %} <label for="validationServerUsername">Imagem</label>
-              <div class="input-group">
-                  <input type="file" class="form-control" placeholder="" name="imagem">
-              </div> {% endcomment %}
-              <br>
-              {% comment %} <label for="validationServerUsername"></label>
-              <div class="input-group">
-              <textarea class="form-control" name='descricao'>
-              </textarea>
-              </div> {% endcomment %}
+          
               <br>
               <input type="submit" value="Cadastrar" class="btn btn-success">
           </form>
@@ -215,4 +170,4 @@ ALUNOS
 
 
   
-{% endblock conteudo %}
+{% endblock conteudo_aluno %}

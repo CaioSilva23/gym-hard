@@ -1,59 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base_aluno.html' %}
 {% load static %}
 
 {% block head %}
-<link rel='stylesheet' href="{% static 'plataforma/css/teste.css'%}"
+<link rel='stylesheet' href="{% static 'plataforma/css/teste.css'%}">
 {% endblock head %}
-{% block conteudo %}
-<div class="wrapper-teste">
-    <div class="box-teste "> 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2">
-                    <a href="" class="link-lateral">
-                        <div class="card-lateral">
-                            <img src="{% static 'plataforma/img/teste.png' %} " class='logo'>
-                            <br>
-                            <br>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                            <h3>teste</h3>
-                        </div>
-                    </a>
-                    
-                       
-                </div>
-                <div class="col-md-8">
-                    <div class="row teste-nav">
-                        <div class="col-md teste-item">
-                            AVALIAÇÃO
-                           </div>
-                           <div class="col-md teste-item">
-                            EDITAR DADOS 
-                           </div>
+{% block conteudo_aluno %}
 
-                           <div class="col-md teste-item">
-                            FICHA DE TREINO
-                           </div>
-                     
-                     
-                   </div>
-                </div>
-            </div>
-        </div>   
-    </div>
-</div>
-
-<!-- Button trigger modal -->
 
   
-{% endblock conteudo %}
+{% endblock conteudo_aluno %}

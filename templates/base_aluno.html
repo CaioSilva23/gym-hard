@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel='stylesheet' href="{% static 'plataforma/css/teste.css'%}">
+{% endblock head %}
+{% block conteudo %}
+<div class="wrapper-teste">
+    <div class="box-teste "> 
+        
+       
+                    
+                    <div class="row teste-nav">
+                            
+                            <div class="col-md teste-item">
+                                <a href="{% url 'dados_aluno' aluno.id%}">EDITAR DADOS   </a>
+                            </div>
+                          
+
+                           <div class="col-md teste-item">
+                            <a href="">AVALIAÇÃO   </a>
+                            
+                           </div>
+                           <div class="col-md teste-item">
+                            <a href="{% url 'ficha_treino_id' aluno.id%}">FICHA DE TREINO  </a>
+                         
+                           </div>
+                     
+                    
+                   </div>
+                   {% block conteudo_aluno %}
+                   {% endblock conteudo_aluno %}
+                </div>
+        
+
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+  
+{% endblock conteudo %}

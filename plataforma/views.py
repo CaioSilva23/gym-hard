@@ -65,6 +65,11 @@ def editar_aluno(request,id):
 def dados_aluno(request, id):
     aluno = get_object_or_404(Aluno, id=id)
 
+    return render(request, 'dados_aluno.html',{'aluno':aluno})
+
+def aluno(request, id):
+    aluno = get_object_or_404(Aluno, id=id)
+
     return render(request, 'teste.html',{'aluno':aluno})
 
 
